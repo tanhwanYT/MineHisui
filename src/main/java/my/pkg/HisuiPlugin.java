@@ -3,7 +3,7 @@ package my.pkg;
 import my.pkg.HisuiManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class hisuiPlugin extends JavaPlugin {
+public class HisuiPlugin extends JavaPlugin {
 
     private HisuiManager hisuiManager;
 

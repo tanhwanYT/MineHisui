@@ -1,0 +1,9 @@
+name: HisuiPlugin
+version: 1.0
+main: my.pkg.HisuiPlugin
+api-version: 1.20
+
+commands:
+  hisui:
+    description: 히스이 스킬 아이템 지급
+    usage: /hisui
