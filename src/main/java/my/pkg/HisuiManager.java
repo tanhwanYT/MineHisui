@@ -42,11 +42,13 @@ public class HisuiManager implements Listener, CommandExecutor, TabCompleter {
     private static final long R_COOLDOWN = 70000L;
 
     private final my.pkg.HisuiQSkill qSkill;
+    private final my.pkg.HisuiESkill eSkill;
 
     public HisuiManager(JavaPlugin plugin) {
         this.plugin = plugin;
         this.skillKey = new NamespacedKey(plugin, "hisui_skill");
         this.qSkill = new my.pkg.HisuiQSkill(plugin, this);
+        this.eSkill = new my.pkg.HisuiESkill(plugin, this);
     }
 
     public void register() {
@@ -327,11 +329,8 @@ public class HisuiManager implements Listener, CommandExecutor, TabCompleter {
         state.eCooldownEnd = System.currentTimeMillis() + E_COOLDOWN;
         grantMemory(state);
 
-        player.sendMessage(ChatColor.GREEN + "[히스이] E 사용!");
-        player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1f, 1.1f);
-
-        // TODO: 실제 E 스킬 로직 연결
-        // 예: eSkill.cast(player);
+        player.sendMessage(ChatColor.GREEN + "[히스이] E - 회피/돌진!");
+        eSkill.cast(player);
     }
 
     private void useR(Player player) {
